@@ -9,4 +9,8 @@ export const GlobalStyles = createGlobalStyle`
         text-transform: uppercase;
         font-family: 'Shantell Sans' cursive;
     }
+    body{
+        font-size:1.5rem;
+        background:${({theme})=>theme.colors.mainColor} ;
+    }
 `

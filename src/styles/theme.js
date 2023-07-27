@@ -1,11 +1,11 @@
 //create theme
-export const theme ={
+export const theme = {
     colors :{
         navbarBgColor: "white",
-        nainColor : "#86c8bc",
+        mainColor : "#7C73C0",
         logoColor :"darkslategray" ,
-        linkColor: "#8b7e74",
-        linkHoverColor: "rgb(5,5,5)",
+        linkColor: "#94ADD7",
+        linkHoverColor: "#ACFADF",
         headerFormColor:"rgba(15,63,42, 0.36)" ,
     },
     screens :{
