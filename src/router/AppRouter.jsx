@@ -9,15 +9,19 @@ import Register from '../pages/register/Register'
 import PrivateRouter from './PrivateRouter'
 import About from '../pages/about/About'
 import Detail from '../pages/detail/Detail'
+import { useState } from 'react'
 
 const AppRouter = () => {
+  const [currentUser, setCurrentUser] = useState(false)
   return (
     <BrowserRouter>
-    <Navbar/>
+    <Navbar currentUser={currentUser} setCurrentUser={
+      setCurrentUser
+    } />
     <GlobalStyles/>
     <Routes>
       <Route path='/' element={<Home/>} />
-      <Route path='/login' element={<Login/>} />
+      <Route path='/login' element={<Login setCurrentUser={setCurrentUser}/>} />
       <Route path='/register' element={<Register/>} />
       {/* <Route path='/about' element={<PrivateRouter/>}>
         <Route path='' element={<About/>}/>

@@ -3,8 +3,13 @@ import { HamburgerIcon, Logo, Menu, MenuLink, Nav } from './Navbar.style'
 import { menuIcon } from '../../helper/iconData'
 import { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = ({currentUser,setCurrentUser}) => {
   const [showMenu, setShowMenu] = useState(false)
+
+  const logout = () =>{
+    setCurrentUser(false)
+    sessionStorage.clear()
+  }
   return (
    <Nav justify="space-between" wrap="wrap">
     <Logo to="/">HCR Library</Logo>
@@ -12,9 +17,17 @@ const Navbar = () => {
     <Menu showMenu={showMenu}>
       <MenuLink to="/">Home</MenuLink>
       <MenuLink to="/about">About</MenuLink>
-      <MenuLink to="/register">Register</MenuLink>
-      <MenuLink to="/login">Login</MenuLink>
-      <MenuLink to="/logout">Logout</MenuLink>
+
+      {
+        currentUser ? (
+          <MenuLink to="/logout"onClick={logout}  >Logout</MenuLink>
+        ) : (
+          <>
+          <MenuLink to="/register">Register</MenuLink>
+          <MenuLink to="/login">Login</MenuLink>
+          </>
+        )
+      }
     </Menu>
    </Nav>
   )
